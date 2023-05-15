@@ -59,7 +59,11 @@ export class App extends Component {
   };
 
   onModalOpen = (largeImageURL, tags) => {
-    this.setState({ isOpenModal: true, largeImageURL, tags });
+    this.setState({
+      isOpenModal: true,
+      largeImageURL: largeImageURL,
+      tags: tags,
+    });
   };
   onModalClose = () => {
     this.setState({ isOpenModal: false });

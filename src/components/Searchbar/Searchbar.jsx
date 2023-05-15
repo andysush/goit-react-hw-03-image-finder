@@ -1,6 +1,11 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
+import { ReactComponent as SearchIcon } from '../../icons/image-search-min.svg';
+import css from './SearchBar.module.css';
 
 export class SearchBar extends Component {
+  static propTypes = { onSubmit: PropTypes.func.isRequired };
+
   state = { value: '' };
 
   handleChange = event => {
@@ -22,14 +27,14 @@ export class SearchBar extends Component {
   render() {
     return (
       <>
-        <header className="searchbar">
-          <form className="form" onSubmit={this.handleSubmit}>
-            <button type="submit" className="button">
-              <span className="button-label">Search</span>
+        <header className={css.searchbar}>
+          <form className={css.form} onSubmit={this.handleSubmit}>
+            <button type="submit" className={css.button}>
+              <SearchIcon />
             </button>
 
             <input
-              className="input"
+              className={css.input}
               type="text"
               autoComplete="off"
               autoFocus
