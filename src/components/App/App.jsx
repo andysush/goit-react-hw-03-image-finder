@@ -1,10 +1,11 @@
 import { Component } from 'react';
-import { SearchBar } from './Searchbar/Searchbar';
+import { SearchBar } from '../Searchbar/Searchbar';
 import * as ImageService from 'services/pixabay';
-import { ImgGallery } from './ImageGallery/ImageGallery';
-import { Button } from './Button/Button';
-import { Loader } from './Loader/Loader';
-import { Modal } from './Modal/Modal';
+import { ImgGallery } from '../ImageGallery/ImageGallery';
+import { Button } from '../Button/Button';
+import { Loader } from '../Loader/Loader';
+import { Modal } from '../Modal/Modal';
+import css from './App.module.css';
 
 export class App extends Component {
   state = {
@@ -83,8 +84,10 @@ export class App extends Component {
     return (
       <div>
         <SearchBar onSubmit={this.handleSubmit}></SearchBar>
-        {isEmpty && <p>Sorry. There are no images ... 😭</p>}
-        {err && <p>Sorry. {err}😭</p>}
+        {isEmpty && (
+          <span className={css.text}>Sorry. There are no images ... 😭</span>
+        )}
+        {err && <span className={css.text}>Sorry. {err}😭</span>}
         <ImgGallery imagesData={imagesData} onModalOpen={this.onModalOpen} />
         {showBtn && <Button onClick={this.loadMore}></Button>}
         {isLoading && <Loader />}

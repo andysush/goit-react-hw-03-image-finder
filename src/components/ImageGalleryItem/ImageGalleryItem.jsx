@@ -6,7 +6,7 @@ export const ImgItem = ({ tags, webformatURL, largeImageURL, onModalOpen }) => {
     <div
       className={css.gallery__item}
       onClick={() => {
-        onModalOpen(largeImageURL);
+        onModalOpen(largeImageURL, tags);
       }}
     >
       <img className={css.gallery__image} src={webformatURL} alt={tags} />
